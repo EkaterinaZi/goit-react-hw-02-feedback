@@ -1,12 +1,13 @@
 import React from "react";
+import { Button } from "./FeedbackOptions.styled";
 const FeedbackOptions = ({onLeaveFeedback}) => (
    <>
-   <button type="button" onClick={() => onLeaveFeedback("good")}>Good
-      </button> 
-      <button type="button" onClick={() => onLeaveFeedback("neutral")}>Neutral
-      </button>
-      <button type="button" onClick={() =>onLeaveFeedback("bad")}>Bad
-      </button>
+   <Button type="button" onClick={() => onLeaveFeedback("good")}>Good
+      </Button> 
+      <Button type="button" onClick={() => onLeaveFeedback("neutral")}>Neutral
+      </Button>
+      <Button type="button" onClick={() =>onLeaveFeedback("bad")}>Bad
+      </Button>
    </>
 );
 
