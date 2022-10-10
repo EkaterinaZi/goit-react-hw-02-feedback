@@ -1,7 +1,6 @@
 import React from "react";
 import { Li, Span} from "./Statistics.styled";
-import {countPositiveFeedbackPercentage} from 'components/Utils/utils'
-const Statistics = ({good, neutral, bad, total} ) => (
+const Statistics = ({good, neutral, bad, total, positiveFeedback} ) => (
     <ul>
     <Li>Good:<Span>{good}</Span>
     </Li> 
@@ -11,7 +10,7 @@ const Statistics = ({good, neutral, bad, total} ) => (
     </Li> 
     <Li>Total:<Span>{total}</Span>
     </Li> 
-    <Li>Positive feedback:<Span>{countPositiveFeedbackPercentage(good, total)} %</Span>
+    <Li>Positive feedback:<Span>{positiveFeedback} %</Span>
     </Li> 
     </ul>
 );
