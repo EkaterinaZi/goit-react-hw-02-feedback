@@ -25,13 +25,20 @@ onLeaveFeedback = (options) => {(
     }
    }) );
 }
+countTotalFeedback(good, bad, neutral){
+  return  good + bad + neutral
+};
+
+countPositiveFeedbackPercentage(good, total){
+  return (Math.ceil((100 * good) / total))
+};
 
     render(){
-      const total = countTotalFeedback(this.state.good, this.state.neutral, this.state.bad)
-      const positiveFeedback = countPositiveFeedbackPercentage(this.state.good, total)
+      const total = this.countTotalFeedback(this.state.good, this.state.neutral, this.state.bad)
+      const positiveFeedback = this.countPositiveFeedbackPercentage(this.state.good, total)
     return (<>
     <Section title="Please leave feedback">
-    <FeedbackOptions  onLeaveFeedback={this.onLeaveFeedback}/>
+    <FeedbackOptions  options={Object.keys(this.state)} onLeaveFeedback={this.onLeaveFeedback}/>
     </Section>
     <Section title="Statistics">
     {total === 0 ? (<Notification/>) : (
@@ -44,10 +51,3 @@ onLeaveFeedback = (options) => {(
 }
 export default App;
 
-export  function countTotalFeedback(good, bad, neutral){
-  return  good + bad + neutral
-};
-
-export function countPositiveFeedbackPercentage(good, total){
-  return (Math.ceil((100 * good) / total))
-};
